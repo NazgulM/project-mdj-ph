@@ -11,29 +11,29 @@ pipeline {
         stage('mysql deployment') {
             steps {
                 sh '''
-                    /usr/bin/kubectl  apply -f mysql-user-pass.yaml
-                    /usr/bin/kubectl  apply -f mysql-db-url.yaml
-                    /usr/bin/kubectl  apply -f mysql-root-pass.yaml
-                    /usr/bin/kubectl  apply -f mysql-pv.yaml
-                    /usr/bin/kubectl  apply -f mysql-pvc.yaml
-                    /usr/bin/kubectl  apply -f mysql-deployment.yaml
-                    /usr/bin/kubectl  apply -f mysql-service.yaml'''
+                    kubectl  apply -f mysql-user-pass.yaml
+                    kubectl  apply -f mysql-db-url.yaml
+                    kubectl  apply -f mysql-root-pass.yaml
+                    kubectl  apply -f mysql-pv.yaml
+                    kubectl  apply -f mysql-pvc.yaml
+                    kubectl  apply -f mysql-deployment.yaml
+                    kubectl  apply -f mysql-service.yaml'''
             }
         }
         
         stage('php-myadmin deployment') { // Fixed typo in the stage name here.
             steps {
                 sh '''
-                    /usr/bin/kubectl  apply -f phpmyadmin-deploy.yaml 
-	                /usr/bin/kubectl  apply -f phpmyadmin-service.yaml'''
+                    kubectl  apply -f phpmyadmin-deploy.yaml 
+	                kubectl  apply -f phpmyadmin-service.yaml'''
           	}
 		    }
 
 		    stage('wordpress deployment') {  // Fixed typo in the stage name here as well.
 			     steps{
 			         sh '''
-			             /usr/bin/kubectl  apply -f wordpress-deploy.yaml
-                         /usr/bin/kubectl  apply -f wordpress-service.yaml'''
+			             kubectl  apply -f wordpress-deploy.yaml
+                         kubectl  apply -f wordpress-service.yaml'''
 			       }
 		      }
         }
