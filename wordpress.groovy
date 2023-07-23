@@ -11,7 +11,6 @@ pipeline {
         stage('mysql deployment') {
             steps {
                 sh '''
-                    chmod +x kubectl
                     kubectl apply -f mysql-user-pass.yaml
                     kubectl apply -f mysql-db-url.yaml
                     kubectl apply -f mysql-root-pass.yaml
