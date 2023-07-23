@@ -2,7 +2,7 @@ pipeline {
     
     agent {
             
-       label 'kubernetes'
+       any
 	        
           }
 
