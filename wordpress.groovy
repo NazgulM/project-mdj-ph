@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        any
+      any
     }
     
     stages {
@@ -27,10 +27,7 @@ pipeline {
             steps {
                 sh '''
                     kubectl apply -f phpmyadmin-deploy.yaml 
-	                  // Make sure there is no extra space at the start of this line.
-			              // Also, ensure correct indentation for all subsequent lines within this block.
-                    
-		                kubectl apply -f phpmyadmin-service.yaml'''
+	                kubectl apply -f phpmyadmin-service.yaml'''
           	}
 		    }
 
@@ -38,7 +35,7 @@ pipeline {
 			     steps{
 			         sh '''
 			             kubectl apply -f wordpress-deploy.yaml
-                   kubectl apply -f wordpress-service.yaml'''
+                         kubectl apply -f wordpress-service.yaml'''
 			       }
 		      }
         }
