@@ -1,5 +1,11 @@
 pipeline {
     
+    agent {
+            
+       label 'kubernetes'
+	        
+          }
+
         stages {
 
             stage('git checkout') {
