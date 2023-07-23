@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  database: bmF6Z3Vs
+kind: Secret
+metadata:
+  creationTimestamp: null
+  name: mysql-db-url

@@ -1,0 +1,14 @@
+# Jenkins Configuration
+jenkins:
+  InstallPlugins:
+    - kubernetes:latest
+    - workflow-aggregator:2.6
+
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: jenkins-admin
+          name: Jenkins Admin User
+          password: admin
+
