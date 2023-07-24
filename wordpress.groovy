@@ -10,14 +10,18 @@ pipeline {
         
         stage('mysql deployment') {
             steps {
-                sh '''
-                    kubectl  apply -f mysql-user-pass.yaml
-                    kubectl  apply -f mysql-db-url.yaml
-                    kubectl  apply -f mysql-root-pass.yaml
-                    kubectl  apply -f mysql-pv.yaml
-                    kubectl  apply -f mysql-pvc.yaml
-                    kubectl  apply -f mysql-deployment.yaml
-                    kubectl  apply -f mysql-service.yaml'''
+                withCredentials([file(credentialsId: 'kube-config', variable: 'KUBECONFIG')]) {
+    sh '''
+        export KUBECONFIG=${KUBECONFIG}
+        kubectl  apply -f mysql-user-pass.yaml
+        kubectl  apply -f mysql-db-url.yaml
+        kubectl  apply -f mysql-root-pass.yaml
+        kubectl  apply -f mysql-pv.yaml
+        kubectl  apply -f mysql-pvc.yaml
+        kubectl  apply -f mysql-deployment.yaml
+        kubectl  apply -f mysql-service.yaml
+    '''
+}
             }
         }
         

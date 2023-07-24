@@ -248,6 +248,8 @@ controller:
     - workflow-aggregator:596.v8c21c963d92d
     - git:5.1.0
     - configuration-as-code:1647.ve39ca_b_829b_42
+    - kubernetes-cli:1.12.0
+    - docker-commons:439.va_3cb_0a_6a_fb_29
 
   # Set to false to download the minimum required version of all dependencies.
   installLatestPlugins: true
@@ -946,10 +948,10 @@ backup:
   #   value: "us-east-1"
   resources:
     requests:
-      memory: 1GB
+      memory: 1Gi
       cpu: 1
     limits:
-      memory: 1GB
+      memory: 1Gi
       cpu: 1
   # Destination to store the backup artifacts
   # Supported cloud storage services: AWS S3, Minio S3, Azure Blob Storage, Google Cloud Storage
