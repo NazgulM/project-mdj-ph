@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: mysql-service
 spec:
-  type: LoadBalancer
+  ports:
+    - port: 3306
+      targetPort: 3306
+      nodePort: 30008 # Use a specific NodePort, or omit this line to have Kubernetes allocate a random port
   selector:
     app: mysql
-  ports:
-    - protocol: TCP
-      port: 3306
-      targetPort: 3306
+  type: NodePort
