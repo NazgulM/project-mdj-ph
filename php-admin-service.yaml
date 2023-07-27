@@ -8,6 +8,7 @@ spec:
   ports:
     - port: 80
       targetPort: 80
+      nodePort: 30008
   selector:
     app: phpmyadmin
-  type: LoadBalancer
+  type: NodePort
